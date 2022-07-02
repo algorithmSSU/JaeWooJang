@@ -48,6 +48,8 @@ public :
 		for (int i = 1; i <= size; ++i)
 			cnt += travle(i, isVisit);
 
+		delete[] isVisit;
+
 		return cnt;
 	}
 
