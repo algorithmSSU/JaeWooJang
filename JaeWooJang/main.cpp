@@ -16,7 +16,7 @@ int main() {
 	//problem13023();
 	//problem1260();
 	//problem2178();
+	//problem17478();
 
-	problem17478();
 	return 0;
 }
