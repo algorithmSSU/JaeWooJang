@@ -7,6 +7,7 @@ extern int problem2023(void);
 extern int problem13023(void);
 extern int problem1260(void);
 extern int problem2178(void);
+extern int problem1167(void);
 
 extern int problem17478();
 
@@ -17,6 +18,7 @@ int main() {
 	//problem1260();
 	//problem2178();
 	//problem17478();
+	problem1167();
 
 	return 0;
 }
