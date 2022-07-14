@@ -5,7 +5,7 @@ using namespace std;
 
 #define MAX_SIZE 22
 #define COMMAND_LEN 1
-
+/*
 class BoardGame {
 private :
 	int width;
@@ -22,7 +22,7 @@ public :
 		width = n;
 		hight = n;
 
-		/* set value */
+		set value 
 		for (int y = 1; y <= hight; ++y)
 			for (int x = 1; x <= width; ++x)
 				cin >> arr[y][x];
@@ -66,7 +66,7 @@ public :
 		for (int x = 1; x <= width; ++x) {
 			// insertPoint
 			int insertPoint = hight;
-
+			
 			int upper = hight;
 			int lower = hight;
 			while (upper > 0) {
@@ -186,7 +186,7 @@ public :
 			else if (command[i] == 'd')
 				move_right();
 		}
-	}
+			}
 
 	int getMax() {
 		int max = 0;
@@ -196,7 +196,7 @@ public :
 					max = arr[y][x];
 
 		return max;
-	}
+		}
 
 	void copy(BoardGame& target) {
 		for (int i = 0; i < MAX_SIZE; ++i)
@@ -214,14 +214,22 @@ public :
 			cout << "\n";
 		}
 	}
+};
+
+int problem12100(void) {
+	int size;
+	cin >> size;
+
+	BoardGame game;
+	game.getInput(size);
 
 	void startGame() {
-		while (true) {
+	while (true) {
 			inputRand();
 			print_mat();
 			
-			char ch;
-			cin >> ch;
+		char ch;
+		cin >> ch;
 			if (ch == 'q')
 				break;
 
@@ -234,13 +242,13 @@ char const cmd[4] = { 'w', 'a', 's', 'd' };
 
 int travle(BoardGame& game, char* command, int len) {
 	int max = 0;
-	
+
 	if (len >= COMMAND_LEN) {
 		BoardGame test;
 		for (int i = 0; i < 4; ++i) {
 			test.copy(game);
 			test.move(command, COMMAND_LEN);
-			
+
 			int tmp = test.getMax();
 			if (tmp > max)
 				max = tmp;
@@ -256,8 +264,8 @@ int travle(BoardGame& game, char* command, int len) {
 	}
 
 	return max;
-}
-
+	}
+	
 int problem12100(void) {
 	int size;
 
@@ -272,3 +280,4 @@ int problem12100(void) {
 
 	return 0;
 }
+*/

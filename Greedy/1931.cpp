@@ -19,7 +19,7 @@ int problem1931() {
 	for (int i = 0; i < num; ++i) {
 		int start, end;
 		cin >> start >> end;
-		//during = end - start;
+		// 끝시간과 시작시간을 배열에 삽입
 		arr.emplace_back(end, start);
 	}
 
