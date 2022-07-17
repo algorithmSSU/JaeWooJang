@@ -5,7 +5,7 @@ using namespace std;
 
 #define MAX_SIZE 22
 #define COMMAND_LEN 1
-/*
+
 class BoardGame {
 private :
 	int width;
@@ -22,10 +22,10 @@ public :
 		width = n;
 		hight = n;
 
-		set value 
+		/* set value */
 		for (int y = 1; y <= hight; ++y)
 			for (int x = 1; x <= width; ++x)
-				cin >> arr[y][x];
+				arr[y][x] = 0;
 	}
 
 	void move_up() {
@@ -166,7 +166,7 @@ public :
 			int y = rand() % hight + 1;
 			
 			if (arr[x][y] == 0) {
-				arr[x][y] = 1;
+				arr[x][y] = 2;
 				break;
 			}
 		}
@@ -214,17 +214,9 @@ public :
 			cout << "\n";
 		}
 	}
-};
-
-int problem12100(void) {
-	int size;
-	cin >> size;
-
-	BoardGame game;
-	game.getInput(size);
 
 	void startGame() {
-	while (true) {
+		while (true) { 
 			inputRand();
 			print_mat();
 			
@@ -264,7 +256,7 @@ int travle(BoardGame& game, char* command, int len) {
 	}
 
 	return max;
-	}
+}
 	
 int problem12100(void) {
 	int size;
@@ -280,4 +272,3 @@ int problem12100(void) {
 
 	return 0;
 }
-*/
