@@ -1,274 +1,192 @@
 #include <iostream>
-#include <cstring>
+#include <vector>
+#define max(a, b) a > b ? a : b // ë‘ ìˆ˜  ë¹„êµ í›„  ë¦¬í„´í•˜ê¸°
 
 using namespace std;
 
-#define MAX_SIZE 22
-#define COMMAND_LEN 1
+int n;
+int ans;
 
-class BoardGame {
-private :
-	int width;
-	int hight;
-
-public :
-	int arr[MAX_SIZE][MAX_SIZE];
-
-	BoardGame() {
-		memset(arr, -1, MAX_SIZE * MAX_SIZE);
-	}
-
-	void getInput(int n) {
-		width = n;
-		hight = n;
-
-		/* set value */
-		for (int y = 1; y <= hight; ++y)
-			for (int x = 1; x <= width; ++x)
-				arr[y][x] = 0;
-	}
-
-	void move_up() {
-		// ¿ŞÂÊºÎÅÍ ¿À¸¥ÂÊ ¹æÇâÀ¸·Î
-		for (int x = 1; x <= width; ++x) {
-			// insertPoint
-			int insertPoint = 1;
-
-			int upper = 1;
-			int lower = 1;
-			while (lower <= width) {
-				for (upper = lower; arr[upper][x] == 0; ++upper);
-				if (upper > width)
-					break;
-				for (lower = upper + 1; arr[lower][x] == 0; ++lower);
-
-				int value;
-
-				// µÎ ¼ö°¡ °°¾Æ ÇÕÃÄÁö´Â °æ¿ì
-				if (arr[upper][x] == arr[lower][x]) {
-					value = arr[upper][x] * 2;
-					arr[upper][x] = 0;
-					arr[lower][x] = 0;
-				}
-				// µÎ ¼ö°¡ ´Ù¸¥ °æ¿ì
-				else {
-					value = arr[upper][x];
-					arr[upper][x] = 0;
-				}
-
-				arr[insertPoint++][x] = value;
-			}
-		}
-	}
-
-	void move_down() {
-		// ¿ŞÂÊºÎÅÍ ¿À¸¥ÂÊ ¹æÇâÀ¸·Î
-		for (int x = 1; x <= width; ++x) {
-			// insertPoint
-			int insertPoint = hight;
-			
-			int upper = hight;
-			int lower = hight;
-			while (upper > 0) {
-				for (lower = upper; arr[lower][x] == 0; --lower);
-				if (lower < 1)
-					break;
-				for (upper = lower - 1; arr[upper][x] == 0; --upper);
-
-				int value;
-				// µÎ ¼ö°¡ °°¾Æ ÇÕÃÄÁö´Â °æ¿ì
-				if (arr[upper][x] == arr[lower][x]) {
-					value = arr[lower][x] * 2;
-					arr[upper][x] = 0;
-					arr[lower][x] = 0;
-				}
-				// µÎ ¼ö°¡ ´Ù¸¥ °æ¿ì
-				else {
-					value = arr[lower][x];
-					arr[lower][x] = 0;
-				}
-
-				arr[insertPoint--][x] = value;
-			}
-		}
-	}
-
-	void move_left() {
-		// À­ÂÊºÎÅÍ ¾Æ·¡ÂÊ ¹æÇâÀ¸·Î
-		for (int y = 1; y <= hight; ++y) {
-			// insertPoint
-			int insertPoint = 1;
-
-			int left = 1;
-			int right = 1;
-
-			// µÎ ¼ö°¡ °°¾Æ ÇÕÃÄÁö´Â °æ¿ì
-			while (right <= width) {
-				for (left = right; arr[y][left] == 0; ++left);
-				if (left > width)
-					break;
-				for (right = left + 1; arr[y][right] == 0; ++right);
-
-				int value;
-				// µÎ ¼ö°¡ °°¾Æ ÇÕÃÄÁö´Â °æ¿ì
-				if (arr[y][left] == arr[y][right]) {
-					value = arr[y][left] * 2;
-					arr[y][left] = 0;
-					arr[y][right] = 0;
-				}
-				// µÎ ¼ö°¡ ´Ù¸¥ °æ¿ì
-				else {
-					value = arr[y][left];
-					arr[y][left] = 0;
-				}
-
-				arr[y][insertPoint++] = value;
-			}
-		}
-	}
-
-	void move_right() {
-		// À­ÂÊºÎÅÍ ¾Æ·¡ÂÊ ¹æÇâÀ¸·Î
-		for (int y = 1; y <= hight; ++y) {
-			// insertPoint
-			int insertPoint = width;
-
-			int left = width;
-			int right = width;
-
-			// µÎ ¼ö°¡ °°¾Æ ÇÕÃÄÁö´Â °æ¿ì
-			while (right > 0) {
-				for (right = left; arr[y][right] == 0; --right);
-				if (right < 1)
-					break;
-				for (left = right - 1; arr[y][left] == 0; --left);
-
-				int value;
-				// µÎ ¼ö°¡ °°¾Æ ÇÕÃÄÁö´Â °æ¿ì
-				if (arr[y][left] == arr[y][right]) {
-					value = arr[y][left] * 2;
-					arr[y][left] = 0;
-					arr[y][right] = 0;
-				}
-				// µÎ ¼ö°¡ ´Ù¸¥ °æ¿ì
-				else {
-					value = arr[y][right];
-					arr[y][right] = 0;
-				}
-				arr[y][insertPoint--] = value;
-			}
-		}
-	}
-
-	void inputRand() {
-		while (1) {
-			int x = rand() % width + 1;
-			int y = rand() % hight + 1;
-			
-			if (arr[x][y] == 0) {
-				arr[x][y] = 2;
-				break;
-			}
-		}
-	}
-
-	void move(char* command, int n) {
-		for (int i = 0; i < n; ++i) {
-			if (command[i] == 'w')
-				move_up();
-
-			else if (command[i] == 'a')
-				move_left();
-
-			else if (command[i] == 's')
-				move_down();
-
-			else if (command[i] == 'd')
-				move_right();
-		}
-			}
-
-	int getMax() {
-		int max = 0;
-		for (int y = 1; y <= hight; ++y)
-			for (int x = 1; x <= width; ++x)
-				if (arr[y][x] > max)
-					max = arr[y][x];
-
-		return max;
-		}
-
-	void copy(BoardGame& target) {
-		for (int i = 0; i < MAX_SIZE; ++i)
-			for (int j = 0; j < MAX_SIZE; ++j)
-				arr[i][j] = target.arr[i][j];
-
-		this->width = target.width;
-		this->hight = target.hight;
-	}
-
-	void print_mat() {
-		for (int y = 1; y <= hight; ++y) {
-			for (int x = 1; x <= width; ++x)
-				cout << arr[y][x] << " ";
-			cout << "\n";
-		}
-	}
-
-	void startGame() {
-		while (true) { 
-			inputRand();
-			print_mat();
-			
-		char ch;
-		cin >> ch;
-			if (ch == 'q')
-				break;
-
-			else move(&ch, 1);
-		}
-	}
-};
-
-char const cmd[4] = { 'w', 'a', 's', 'd' };
-
-int travle(BoardGame& game, char* command, int len) {
-	int max = 0;
-
-	if (len >= COMMAND_LEN) {
-		BoardGame test;
-		for (int i = 0; i < 4; ++i) {
-			test.copy(game);
-			test.move(command, COMMAND_LEN);
-
-			int tmp = test.getMax();
-			if (tmp > max)
-				max = tmp;
-		}
-	}
-	else {
-		for (int i = 0; i < 4; ++i) {
-			command[len] = cmd[i];
-			int tmp = travle(game, command, len + 1);
-			if (tmp > max)
-				max = tmp;
-		}
-	}
-
-	return max;
+int getMax(vector<vector<int>> board)
+{
+    int res = 0;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            res = max(res, board[i][j]);
+        }
+    }
+    return res;
 }
-	
-int problem12100(void) {
-	int size;
 
-	cin >> size;
-	BoardGame game;
-	game.getInput(size);
+// ì˜¤ë¥¸ìª½ ì´ë™
+vector<vector<int>> right(vector<vector<int>> board)
+{
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
 
-	char command[6] = { 0 };
-	game.startGame();
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = n - 2; j >= 0; j--)
+        {
+            if (board[i][j] == 0)
+                continue;
+            for (int k = j + 1; k < n; k++)
+            {
+                if (board[i][k] == board[i][k - 1] && !visited[i][k])
+                {
+                    board[i][k] *= 2;
+                    board[i][k - 1] = 0;
+                    visited[i][k] = true;
+                    break;
+                }
+                else if (board[i][k] == 0)
+                {
+                    board[i][k] = board[i][k - 1];
+                    board[i][k - 1] = 0;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+    }
+    return board;
+}
 
-	cout << travle(game, command, 0);
+// ì™¼ìª½ ì´ë™
+vector<vector<int>> left(vector<vector<int>> board)
+{
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
 
-	return 0;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 1; j < n; j++)
+        {
+            if (board[i][j] == 0)
+                continue;
+            for (int k = j - 1; k >= 0; k--)
+            {
+                if (board[i][k] == board[i][k + 1] && !visited[i][k])
+                {
+                    board[i][k] *= 2;
+                    board[i][k + 1] = 0;
+                    visited[i][k] = true;
+                    break;
+                }
+                else if (board[i][k] == 0)
+                {
+                    board[i][k] = board[i][k + 1];
+                    board[i][k + 1] = 0;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+    }
+    return board;
+}
+
+// ì•„ë˜ ì´ë™
+vector<vector<int>> down(vector<vector<int>> board)
+{
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = n - 2; j >= 0; j--)
+        {
+            if (board[j][i] == 0)
+                continue;
+            for (int k = j + 1; k < n; k++)
+            {
+                if (board[k][i] == board[k - 1][i] && !visited[k][i])
+                {
+                    board[k][i] *= 2;
+                    board[k - 1][i] = 0;
+                    visited[k][i] = true;
+                    break;
+                }
+                else if (board[k][i] == 0)
+                {
+                    board[k][i] = board[k - 1][i];
+                    board[k - 1][i] = 0;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+    }
+    return board;
+}
+
+// ìœ„ë¡œ ì´ë™
+vector<vector<int>> up(vector<vector<int>> board)
+{
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 1; j < n; j++)
+        {
+            if (board[j][i] == 0)
+                continue;
+            for (int k = j - 1; k >= 0; k--)
+            {
+                if (board[k][i] == board[k + 1][i] && !visited[k][i])
+                {
+                    board[k][i] *= 2;
+                    board[k + 1][i] = 0;
+                    visited[k][i] = true;
+                    break;
+                }
+                else if (board[k][i] == 0)
+                {
+                    board[k][i] = board[k + 1][i];
+                    board[k + 1][i] = 0;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+    }
+    return board;
+}
+
+void dfs(int L, vector<vector<int>> board)
+{
+    ans = max(ans, getMax(board));
+    if (L == 5)
+        return;
+    dfs(L + 1, right(board));
+    dfs(L + 1, left(board));
+    dfs(L + 1, up(board));
+    dfs(L + 1, down(board));
+}
+
+int main()
+{
+    // ì…ë ¥
+    cin >> n;
+    vector<vector<int>> board(n, vector<int>(n));
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            cin >> board[i][j];
+        }
+    }
+
+    // dfs ì‹¤í–‰
+    dfs(0, board);
+    cout << ans << '\n';
+
+    return 0;
 }
