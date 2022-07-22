@@ -27,6 +27,7 @@ long long getStairCnt(int n) {
 	int next = 1;
 
 	for (int i = 1; i < n; ++i) {
+		// 0으로 시작하는 수는 1로 시작하는 수로 밖에 시발? 
 		numCnt[next][0] = numCnt[cur][1];
 
 		for (int j = 1; j < 9; ++j)
