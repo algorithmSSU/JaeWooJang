@@ -6,6 +6,7 @@ using namespace std;
 
 void get_LCS_Arr(vector<vector<int>>& arr, const char* const str1, const char* const str2);
 string get_LCS_Str(const vector<vector<int>>& arr, const char* const str1, const char* const str2);
+int max(int a, int b);
 
 int problem9252() {
 	char str1[1002] = { '0' };

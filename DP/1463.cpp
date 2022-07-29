@@ -38,7 +38,7 @@ int calculate(vector<int>& arr, int n) {
 	return arr[n];
 }
 
-int min(int a, int b, int c) {
+int amin(int a, int b, int c) {
 	int min = (a < b) ? a : b;
 	min = (c < min) ? c : min;
 

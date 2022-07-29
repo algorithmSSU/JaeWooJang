@@ -3,11 +3,11 @@
 using namespace std;
 
 extern int problem2343();
-extern int problem12100();
+//extern int problem12100();
 
-int main() {
+int masdain() {
 	//problem2343();
-	problem12100();
+	//problem12100();
 
 	return 0;
 }

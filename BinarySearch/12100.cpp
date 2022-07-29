@@ -4,15 +4,15 @@
 using namespace std;
 
 #define MAX_SIZE 22
-#define COMMAND_LEN 1
+#define COMMAND_LEN 5
 
 class BoardGame {
-private :
+private:
 	int width;
 	int hight;
 
-public :
-	int arr[MAX_SIZE][MAX_SIZE];
+public:
+	long long arr[MAX_SIZE][MAX_SIZE];
 
 	BoardGame() {
 		memset(arr, -1, MAX_SIZE * MAX_SIZE);
@@ -25,7 +25,7 @@ public :
 		/* set value */
 		for (int y = 1; y <= hight; ++y)
 			for (int x = 1; x <= width; ++x)
-				arr[y][x] = 0;
+				cin >> arr[y][x];
 	}
 
 	void move_up() {
@@ -42,7 +42,7 @@ public :
 					break;
 				for (lower = upper + 1; arr[lower][x] == 0; ++lower);
 
-				int value;
+				long long value;
 
 				// 두 수가 같아 합쳐지는 경우
 				if (arr[upper][x] == arr[lower][x]) {
@@ -66,7 +66,7 @@ public :
 		for (int x = 1; x <= width; ++x) {
 			// insertPoint
 			int insertPoint = hight;
-			
+
 			int upper = hight;
 			int lower = hight;
 			while (upper > 0) {
@@ -75,7 +75,7 @@ public :
 					break;
 				for (upper = lower - 1; arr[upper][x] == 0; --upper);
 
-				int value;
+				long long value;
 				// 두 수가 같아 합쳐지는 경우
 				if (arr[upper][x] == arr[lower][x]) {
 					value = arr[lower][x] * 2;
@@ -109,7 +109,7 @@ public :
 					break;
 				for (right = left + 1; arr[y][right] == 0; ++right);
 
-				int value;
+				long long value;
 				// 두 수가 같아 합쳐지는 경우
 				if (arr[y][left] == arr[y][right]) {
 					value = arr[y][left] * 2;
@@ -143,7 +143,7 @@ public :
 					break;
 				for (left = right - 1; arr[y][left] == 0; --left);
 
-				int value;
+				long long value;
 				// 두 수가 같아 합쳐지는 경우
 				if (arr[y][left] == arr[y][right]) {
 					value = arr[y][left] * 2;
@@ -164,45 +164,40 @@ public :
 		while (1) {
 			int x = rand() % width + 1;
 			int y = rand() % hight + 1;
-			
+
 			if (arr[x][y] == 0) {
-				arr[x][y] = 2;
+				arr[x][y] = 1;
 				break;
 			}
 		}
 	}
 
-	void move(char* command, int n) {
-		for (int i = 0; i < n; ++i) {
-			if (command[i] == 'w')
-				move_up();
+	void move(char command) {
+		if (command == 'w')
+			move_up();
 
-			else if (command[i] == 'a')
-				move_left();
+		else if (command == 'a')
+			move_left();
 
-			else if (command[i] == 's')
-				move_down();
+		else if (command == 's')
+			move_down();
 
-			else if (command[i] == 'd')
-				move_right();
-		}
-			}
+		else if (command == 'd')
+			move_right();
+	}
 
 	int getMax() {
-		int max = 0;
+		long long max = 0;
 		for (int y = 1; y <= hight; ++y)
 			for (int x = 1; x <= width; ++x)
 				if (arr[y][x] > max)
 					max = arr[y][x];
 
 		return max;
-		}
+	}
 
 	void copy(BoardGame& target) {
-		for (int i = 0; i < MAX_SIZE; ++i)
-			for (int j = 0; j < MAX_SIZE; ++j)
-				arr[i][j] = target.arr[i][j];
-
+		memcpy(this->arr, target.arr, sizeof(target.arr));
 		this->width = target.width;
 		this->hight = target.hight;
 	}
@@ -214,42 +209,21 @@ public :
 			cout << "\n";
 		}
 	}
-
-	void startGame() {
-		while (true) { 
-			inputRand();
-			print_mat();
-			
-		char ch;
-		cin >> ch;
-			if (ch == 'q')
-				break;
-
-			else move(&ch, 1);
-		}
-	}
 };
 
 char const cmd[4] = { 'w', 'a', 's', 'd' };
 
-int travle(BoardGame& game, char* command, int len) {
-	int max = 0;
+long long travle(BoardGame& cur, int len) {
+	long long max = 0;
 
-	if (len >= COMMAND_LEN) {
-		BoardGame test;
-		for (int i = 0; i < 4; ++i) {
-			test.copy(game);
-			test.move(command, COMMAND_LEN);
-
-			int tmp = test.getMax();
-			if (tmp > max)
-				max = tmp;
-		}
-	}
+	if (len >= COMMAND_LEN)
+		max = cur.getMax();
 	else {
+		BoardGame next;
 		for (int i = 0; i < 4; ++i) {
-			command[len] = cmd[i];
-			int tmp = travle(game, command, len + 1);
+			next.copy(cur);
+			next.move(cmd[i]);
+			long long tmp = travle(next, len + 1);
 			if (tmp > max)
 				max = tmp;
 		}
@@ -257,8 +231,9 @@ int travle(BoardGame& game, char* command, int len) {
 
 	return max;
 }
-	
-int problem12100(void) {
+
+
+int main(void) {
 	int size;
 
 	cin >> size;
@@ -266,9 +241,9 @@ int problem12100(void) {
 	game.getInput(size);
 
 	char command[6] = { 0 };
-	game.startGame();
-
-	cout << travle(game, command, 0);
+	game.move_up();
+	game.print_mat();
+	//cout << travle(game, 0);
 
 	return 0;
 }

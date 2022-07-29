@@ -6,7 +6,7 @@ using namespace std;
 long long getMin(const vector<long long>& arr, int n );
 long long min(const vector<vector<long long>>& mat, const vector<long long>& arr, const int i, const int j);
 
-int main() {
+int problem11049() {
 	int n;
 	cin >> n;
 

@@ -31,7 +31,6 @@ long long getCaseNum(vector<vector<vector<long long>>>& arr, int n, int l, int r
 	if (n < 2)
 		return arr[n][l][r] = 1;
 
-
 	if (arr[n][l][r] != 0)
 		return arr[n][l][r];
 
