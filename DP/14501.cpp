@@ -9,6 +9,7 @@ int problem14501() {
 	int n;
 	cin >> n;
 	
+	// pair<int, int> => < Duration, Pay >
 	vector<pair<int, int>> arr(n);
 	for (int i = 0; i < n; ++i)
 		cin >> arr[i].first >> arr[i].second;
@@ -23,6 +24,7 @@ int noName(vector<pair<int, int>>& arr, int endDate, int cur) {
 		return 0;
 
 	int next = cur + arr[cur].first;
+
 	int value1 = 0;
 	int value2 = 0;
 
