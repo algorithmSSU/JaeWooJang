@@ -4,6 +4,8 @@
 using namespace std;
 
 #define MAX 10000000
+#define Left 0
+#define Right 1
 
 enum cmd {
 	center,
@@ -22,11 +24,15 @@ int cost[5][5] = {
 };
 
 int main() {
-	int cost_endLeft[2] = { 0, 0 };
-	int cost_endRight[2] = { 0, 0 };
+	int cost_LeftLeft[2] = { 0, 0 };
+	int cost_LeftRight[2] = { 0, 0 };
+	int cost_RightLeft[2] = { 0, 0 };
+	int cost_RightRight[2] = { 0, 0 };
 
-	pair<int, int> pos_endLeft[2] = { {0, 0}, {0, 0} };
-	pair<int, int> pos_endRight[2] = { {0, 0}, {0, 0} };
+	pair<int, int> pos_LeftLeft[2] = { {0, 0}, {0, 0} };
+	pair<int, int> pos_RightLeft[2] = { {0, 0}, {0, 0} };
+	pair<int, int> pos_LeftRight[2] = { {0, 0}, {0, 0} };
+	pair<int, int> pos_RightRight[2] = { {0, 0}, {0, 0} };
 
 	int cur = 0;
 	int next = 1;
@@ -35,9 +41,22 @@ int main() {
 	cin >> nextStep;
 
 	while (nextStep) {
-		int val[4] = { MAX, MAX, MAX, MAX };
+		int val1 = 0;
+		int val2 = 0;
 
-		/** Case: step by Left **/
+		/** Case: step by LeftLeft **/
+		if (pos_LeftLeft[cur].second != nextStep)
+			val1 = cost_LeftLeft[cur] + cost[pos_LeftLeft[cur].first][nextStep];
+
+		if (pos_RightLeft[cur].second != nextStep)
+			val2 = cost_RightLeft[cur] + cost[pos_RightLeft[cur].first][nextStep];
+
+		if (val1 < val2) {
+			cost_LeftLeft
+		}
+
+
+
 
 		// endLeft -> endLeft
 		if (pos_endLeft[cur].second != nextStep)

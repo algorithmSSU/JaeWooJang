@@ -11,10 +11,11 @@ public :
 	set<int> child;
 };
 
-int problem1063() {
+int problem1068() {
 	int n;
 	cin >> n;
 
+	// N번째 노드는 루트 노드가 가리키는 임시 가상 노드
 	vector<Node> tree(n + 1);
 
 	int root = -1;
@@ -23,11 +24,12 @@ int problem1063() {
 		int input;
 		cin >> input;
 
+		// #Case : 루트 노드
 		if (input < 0) {
 			tree[i].parent = n;
 			tree[n].child.insert(i);
 		}
-
+		// #Case : 일반적인 노드
 		else {
 			tree[i].parent = input;
 			tree[input].child.insert(i);
@@ -37,7 +39,10 @@ int problem1063() {
 	int emptyNester;
 	cin >> emptyNester;
 
+	// 해당 노드 부모의 자식
 	tree[tree[emptyNester].parent].child.erase(emptyNester);
+	
+	// 해당 노드의 자식
 	tree[emptyNester].child.clear();
 	
 	queue<int> que;

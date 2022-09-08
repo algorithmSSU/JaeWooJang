@@ -3,6 +3,23 @@
 
 using namespace std;
 
+
+bool isOutSide(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
+	if (x1 < x4 && x2 > x3 &&
+		y1 > y4 && y2 < y3)
+		return false;
+
+	return true;
+}
+
+bool isInside(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
+	if (x1 < x3 && x2 > x4 &&
+		y1 < y3 && y2 > y4)
+		return true;
+
+	return false;
+}
+
 class MatrixSegmentTree {
 public:
 	vector<vector<vector<long long>>> tree;
@@ -95,22 +112,7 @@ private:
 	}
 };
 
-bool isOutSide(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
-	if (x1 < x4 && x2 > x3 &&
-		y1 > y4 && y2 < y3)
-		return false;
-
-	return true;
-}
-
-bool isInside(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
-	if (x1 < x3 && x2 > x4 &&
-		y1 < y3 && y2 > y4)
-		return true;
-
-	return false;
-}
-int main() {
+int problem11638() {
 	int n, m;
 	cin >> n >> m;
 
