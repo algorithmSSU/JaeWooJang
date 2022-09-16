@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int main() {
+int problem14267() {
 	int n, m;
 	cin >> n >> m;
 
@@ -40,12 +40,12 @@ int main() {
 
 		for (int i = 0; i < childs[cur].size(); ++i) {
 			weights[childs[cur][i]] += weights[cur];
-			que.push(arr[cur].child[i]);
+			que.push(childs[cur][i]);
 		}
 	}
 
 	for (int i = 1; i <= n; ++i)
-		cout << arr[i].weight << " ";
+		cout << weights[i] << " ";
 
 	return 0;
 }

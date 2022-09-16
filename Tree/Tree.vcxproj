@@ -139,6 +139,8 @@
     <ClCompile Include="14425.cpp" />
     <ClCompile Include="1991.cpp" />
     <ClCompile Include="2042.cpp" />
+    <ClCompile Include="4803.cpp" />
+    <ClCompile Include="leetcode96.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\DP\mytool.h" />
