@@ -1,6 +1,13 @@
 # JJW Algorithm Solution
 BACKJOON Problems Solution
 
+프로그래머스 코딩 테스트 문제풀이  
+[이것이 취업을 위한 코딩테스트 이다]
+| 주차  | 문제  | 풀이  |
+|:---:|:------|:-----:|
+| 1주차  | [무지의 먹방 라이브](https://school.programmers.co.kr/learn/courses/42891/lessons/42891) <br> [문자열 압축](https://school.programmers.co.kr/learn/courses/30/lessons/60057) <br> [자물쇠와 열쇠](https://school.programmers.co.kr/learn/courses/30/lessons/60059) | [풀이](Programmers_Problems/42891.cpp) <br> [풀이](Programmers_Problems/60057.cpp) <br> [풀이](Programmers_Problems/60059.cpp)
+| 2주차  | [기둥과 보 설치](https://school.programmers.co.kr/learn/courses/30/lessons/60061) <br> [외벽 점검](https://school.programmers.co.kr/learn/courses/30/lessons/60062) <br> [괄호 변환](https://school.programmers.co.kr/learn/courses/30/lessons/60058) | [풀이](Programmers_Problems/60061.cpp) <br> [풀이](Programmers_Problems/60062.cpp) <br> [풀이](Programmers_Problems/60058.cpp)
+
 | 주차  | 문제  | 풀이  | 분석  |
 |:---:|:------|:-----:|:-----:|
 | 1주차  | [boj11724](https://www.acmicpc.net/problem/11724) <br> [boj2023](https://www.acmicpc.net/problem/2023) <br> [boj13023](https://www.acmicpc.net/problem/13023) <br> [boj1206](https://www.acmicpc.net/problem/1260) <br> [boj2178](https://www.acmicpc.net/problem/2178)  | [풀이](DFS_BFS/11724.cpp) <br> [풀이](DFS_BFS/2023.cpp) <br> [풀이](DFS_BFS/13023.cpp) <br> [풀이](DFS_BFS/1206.cpp) <br> [풀이](DFS_BFS/2178.cpp)  | [DFS_BFS](분석/DFS_BFS.ipynb)
