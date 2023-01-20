@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\DP\9205.cpp" />
     <ClCompile Include="1167.cpp" />
     <ClCompile Include="11724.cpp" />
     <ClCompile Include="1260.cpp" />
