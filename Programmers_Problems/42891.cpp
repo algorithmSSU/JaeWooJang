@@ -3,11 +3,12 @@
 #include <algorithm>
 #include <iostream>
 
+
 using namespace std;
 
 #define MAX 100000001
 
-// bynarySearch : k¹øÂ° À½½ÄÀº Å×ÀÌºíÀÌ ¸î ¹ÙÄû È¸ÀüÇÑ ÀÌÈÄ¿¡ ¸Ô´ÂÁö¸¦ return ÇÏ´Â Àç±Í ÇÔ¼ö
+// bynarySearch : kï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ä¿ï¿½ ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ return ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 int binarySearch(vector<int>& arr, long long k, int min, int max) {
     if (min > max)
         return max;
@@ -15,7 +16,7 @@ int binarySearch(vector<int>& arr, long long k, int min, int max) {
     int mid = (min + max) / 2;
 
     long long sum = 0;
-    // mid¹ø Å×ÀÌºíÀÌ È¸ÀüÇÒ ¶§
+    // midï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     for (int i = 0; i < arr.size(); ++i) {
         if (arr[i] >= mid)
             sum += mid;
@@ -37,7 +38,7 @@ int solution(vector<int> food_times, long long k) {
     int max = *max_element(food_times.begin(), food_times.end());
     //int min = *min_element(food_times.begin(), food_times.end());
 
-    // #Case Check : ¸¸ÀÏ ½Ã°£³»·Î ´Ù ¸Ô´Â °æ¿ì
+    // #Case Check : ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô´ï¿½ ï¿½ï¿½ï¿½
     long long total = 0;
     for (const auto val : food_times)
         total += val;
@@ -45,13 +46,13 @@ int solution(vector<int> food_times, long long k) {
     if (total <= k)
         return -1;
 
-    // cycle : Å×ÀÌºíÀÌ cycle¹ø È¸ÀüÇÑ ÀÌÈÄ k¹øÂ° À½½ÄÀÌ Á¸Àç
+    // cycle : ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ cycleï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ kï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     int cycle = binarySearch(food_times, k, 0, max);
 
     //int cycle = binarySearch(food_times, k, min, max);
-    // => Error!! ¸¸ÀÏ k°¡ min º¸´Ù ÀÛÀ»°æ¿ì Ä¿¹ö ºÒ°¡
+    // => Error!! ï¿½ï¿½ï¿½ï¿½ kï¿½ï¿½ min ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ ï¿½Ò°ï¿½
 
-    // eaten : Å×ÀÌºíÀÌ cycle¹ø È¸ÀüÇÏ´Â µ¿¾È ¸ÔÀº À½½ÄÀÇ ÃÑÇÕ
+    // eaten : ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ cycleï¿½ï¿½ È¸ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     long long eaten = 0;
     for (const auto val : food_times) {
         if (val >= cycle)
@@ -60,15 +61,58 @@ int solution(vector<int> food_times, long long k) {
             eaten += val;
     }
 
-    // restFodds : ¾ÆÁ÷ ³²¾ÆÀÖ´Â À½½ÄÀÇ ÀÎµ¦½º ÀúÀå
+    // restFodds : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     vector<int> restFoods;
     for (int i = 0; i < food_times.size(); ++i)
         if (food_times[i] > cycle)
             restFoods.emplace_back(i + 1);
 
-    // ¸¶Áö¸· ¹ÙÄû¿¡¼­ idx¹øÂ° À½½ÄÀÌ ÀüÃ¼¿¡¼­ k¹øÂ°·Î ¸Ô´Â À½½Ä
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ idxï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ kï¿½ï¿½Â°ï¿½ï¿½ ï¿½Ô´ï¿½ ï¿½ï¿½ï¿½ï¿½
     long long idx = k - eaten;
     answer = restFoods[idx];
 
     return answer;
+}
+
+void suffle(vector<int>& arr) {
+    for (int i = 0; i < arr.size(); ++i) {
+        int x = rand() % arr.size();
+        int y = rand() % arr.size();
+
+        int temp = arr[x];
+        arr[x] = arr[y];
+        arr[y] = temp;
+    }
+
+}
+
+int main() {
+    srand(time(NULL));
+    for (int testCase = 0; testCase < 100000000; ++testCase) {
+        int n = rand() % 15 + 1;
+        
+        vector<int> arr(n);
+        for (int i = 0; i < n; ++i)
+            arr[i] = i * 3 + 1;
+
+        suffle(arr);
+
+        long long k = rand() % 10000 + 1;
+
+        int result1 = solution1(arr, k);
+        int result2 = solution2(arr, k);
+
+        if (result1 != result2) {
+            cout << "dif!!\n";
+            cout << "arr : [";
+            for (const auto var : arr)
+                cout << var << ", ";
+            cout << "]\n";
+            cout << "k : " << k << "\n";
+
+            cout << "1 : " << result1 << "\n";
+            cout << "2 : " << result2 << "\n";
+            break;
+        }
+    }
 }

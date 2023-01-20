@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-
+/*
 using namespace std;
 
 #define MAX 10000000
@@ -44,7 +44,7 @@ int main() {
 		int val1 = 0;
 		int val2 = 0;
 
-		/** Case: step by LeftLeft **/
+		Case: step by LeftLeft
 		if (pos_LeftLeft[cur].second != nextStep)
 			val1 = cost_LeftLeft[cur] + cost[pos_LeftLeft[cur].first][nextStep];
 
@@ -80,7 +80,7 @@ int main() {
 		}
 
 
-		/** Case: step by Right **/
+		Case: step by Right
 
 		// endLeft -> endRight
 		if (pos_endLeft[cur].first != nextStep)
@@ -116,3 +116,4 @@ int main() {
 
 
 }
+*/

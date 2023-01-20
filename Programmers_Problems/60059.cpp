@@ -9,7 +9,7 @@ using Matrix = vector<vector<int>>;
 Matrix copyMatrix(Matrix& mat);
 
 
-/* printMat : µð¹ö±ë¿ë ¸ÅÆ®¸¯½º Ãâ·Â ÇÔ¼ö */
+/* printMat : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½ */
 void printMat(Matrix& mat) {
     for (int i = 0; i < mat.size(); ++i) {
         for (int j = 0; j < mat[i].size(); ++j)
@@ -19,7 +19,7 @@ void printMat(Matrix& mat) {
     cout << "\n\n";
 }
 
-/* setWorld : ¹®Àç ÇØ°áÀ» À§ÇØ È®Àå½ÃÅ² world ¸ÅÆ®¸¯½º Áß¾Ó¿¡ lockÀÇ °ªÀ» ¼¼ÆÃÇØÁÜ */
+/* setWorld : ï¿½ï¿½ï¿½ï¿½ ï¿½Ø°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Å² world ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ß¾Ó¿ï¿½ lockï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 void setWorld(Matrix& world, Matrix& lock, int KeySize) {
     int blank = KeySize - 1;
     for (int i = 0; i < lock.size(); ++i) {
@@ -28,7 +28,7 @@ void setWorld(Matrix& world, Matrix& lock, int KeySize) {
     }
 }
 
-/* checkUnlock : key°¡ ³Ö¾îÁø world°¡ ¸ðµÎ °¡µæÂ÷´ÂÁö È®ÀÎ */
+/* checkUnlock : keyï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ worldï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ */
 bool checkUnlock(Matrix& world, int keysize) {
     for (int i = keysize - 1; i <= world.size() - keysize; ++i) {
         for (int j = keysize - 1; j <= world.size() - keysize; ++j) {
@@ -41,13 +41,13 @@ bool checkUnlock(Matrix& world, int keysize) {
     return true;
 }
 
-/* tryFit : worldÀÇ (x, y)¸¦ ¿ÞÂÊ»ó´ÜÀ¸·Î ÇÏ¿© key¸¦ »ðÀÔ */
+/* tryFit : worldï¿½ï¿½ (x, y)ï¿½ï¿½ ï¿½ï¿½ï¿½Ê»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¿ï¿½ keyï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 bool tryFit(Matrix& world, Matrix& key, int x, int y) {
     for (int i = 0; i < key.size(); ++i) {
         for (int j = 0; j < key.size(); ++j) {
             world[x + i][y + j] += key[i][j];
 
-            // ÇÏ³ª¶óµµ °É¸®´Â °æ¿ì ºü¸¥ Á¾·á
+            // ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (world[x + i][y + j] > 1) {
                 //printMat(world);
                 return false;
@@ -58,7 +58,7 @@ bool tryFit(Matrix& world, Matrix& key, int x, int y) {
     return checkUnlock(world, key.size());
 }
 
-/* tryUnlock : world¿¡ ´ëÇÏ¿© °¡´ÉÇÑ ¸ðµç (x, y)¿¡ ´ëÇØ key¸¦ tryFit()½Ãµµ */
+/* tryUnlock : worldï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ (x, y)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ keyï¿½ï¿½ tryFit()ï¿½Ãµï¿½ */
 bool tryUnlock(Matrix& world, Matrix& key) {
     int width = world.size() - key.size() + 1;
 
@@ -72,7 +72,7 @@ bool tryUnlock(Matrix& world, Matrix& key) {
     return false;
 }
 
-/* rotation90 : ÀÔ·ÂµÈ ¸ÅÆ®¸¯½º¸¦ 90µµ È¸Àü */
+/* rotation90 : ï¿½Ô·Âµï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 90ï¿½ï¿½ È¸ï¿½ï¿½ */
 void rotation90(vector<vector<int>>& mat) {
     int n = mat.size();
     Matrix copyMat = copyMatrix(mat);
@@ -82,7 +82,7 @@ void rotation90(vector<vector<int>>& mat) {
             mat[i][n - j - 1] = copyMat[j][i];
 }
 
-/* copyMatrix : ¸ÅÆ®¸¯½º¸¦ ¸ñ»çÇÏ¿© ¹ÝÈ¯ */
+/* copyMatrix : ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½È¯ */
 Matrix copyMatrix(const Matrix& mat) {
     Matrix copyMat;
 
@@ -103,17 +103,9 @@ bool solution(vector<vector<int>> key, vector<vector<int>> lock) {
 
     int worldSize = M + M + N - 2;
 
-    // world : lockÀÇ ¿Ü°¢À» È®ÀåÇÑ Matrix
+    // world : lockï¿½ï¿½ ï¿½Ü°ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ Matrix
     Matrix world(worldSize, vector<int>(worldSize, 0));
     setWorld(world, lock, M);
 
-    // 90
-    for (int i = 0; i < 4; ++i) {
-        if (tryUnlock(world, key))
-            return true;
-
-        rotation90(key);
-    }
-
-    return false;
+    return answer;
 }
