@@ -4,7 +4,7 @@ from : '23.01.20.
 
 | WEEK | SELECTED PROBLEMS | CATEGORIS | SOLUTIONS | ANALYSIS |
 |:----:|:------------------|:---------:|:---------:|:-----------------------:|
-| week1 | [[boj2156]포도주 시식](https://www.acmicpc.net/problem/2156) <br> [[boj9205]맥주 마시면서 걸어가기](https://www.acmicpc.net/problem/9205) <br><br> [[empty]]() <br> [[empty]]() <br> [[empty]]() <br> [[empty]]() | [private] <br> [private] <br><br> [private] <br> [private] <br> [private] <br> [private] | [boj2156](DP/2156.cpp) <br> [boj9205](DP/9205.cpp) <br><br> [empty]() <br> [empty]() <br> [empty]() <br> [empty]() | [empty]() |
+| week1 | [[boj2156]포도주 시식](https://www.acmicpc.net/problem/2156) <br> [[boj9205]맥주 마시면서 걸어가기](https://www.acmicpc.net/problem/9205) <br><br> [[empty]]() <br> [[empty]]() <br> [[empty]]() <br> [[empty]]() | [private] <br> [private] <br><br> [private] <br> [private] <br> [private] <br> [private] | [boj2156](DP/2156.cpp) <br> [boj9205](DP/9205.cpp) <br><br> [empty]() <br> [empty]() <br> [empty]() <br> [empty]() | [week1](분석/week1.ipynb) |
 | week2 | [[empty]]() <br> [[empty]]() <br><br> [[empty]]() <br> [[empty]]() <br> [[empty]]() <br> [[empty]]() | [private] <br> [private] <br><br> [private] <br> [private] <br> [private] <br> [private] | [empty]() <br> [empty]() <br><br> [empty]() <br> [empty]() <br> [empty]() <br> [empty]() | [empty]() |
 | week3 | [[empty]]() <br> [[empty]]() <br><br> [[empty]]() <br> [[empty]]() <br> [[empty]]() <br> [[empty]]() | [private] <br> [private] <br><br> [private] <br> [private] <br> [private] <br> [private] | [empty]() <br> [empty]() <br><br> [empty]() <br> [empty]() <br> [empty]() <br> [empty]() | [empty]() |
 
