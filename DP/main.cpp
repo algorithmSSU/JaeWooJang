@@ -8,12 +8,17 @@ extern int problem9252();
 extern int problem11049();
 //extern int problem14003();
 
-int mainkk() {
-	problem1463();
-	problem2193();
-	problem10844();
-	problem9252();
-	problem11049();
+extern int problem2156();
+
+int main() {
+	//problem1463();
+	//problem2193();
+	//problem10844();
+	//problem9252();
+	//problem11049();
+
+	problem2156();
+	//problem9205();
 
 	return 0;
 }

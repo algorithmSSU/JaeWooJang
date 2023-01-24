@@ -11,6 +11,8 @@ extern int problem1167(void);
 
 extern int problem17478();
 
+extern int problem9205(void);
+
 int main() {
 	//problem11724();
 	//problem2023();
@@ -18,7 +20,9 @@ int main() {
 	//problem1260();
 	//problem2178();
 	//problem17478();
-	problem1167();
+	//problem1167();
+
+	problem9205();
 
 	return 0;
 }

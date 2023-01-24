@@ -1,7 +1,25 @@
 # JJW Algorithm Solution
-BACKJOON Problems Solution
+### PROBLEM SOLUTIONS
+from : '23.01.20.
 
-| 주차  | 문제  | 풀이  | 분석  |
+| WEEK | SELECTED PROBLEMS | CATEGORIS | SOLUTIONS | ANALYSIS |
+|:----:|:------------------|:---------:|:---------:|:-----------------------:|
+| week1 | [[boj2156]포도주 시식](https://www.acmicpc.net/problem/2156) <br> [[boj9205]맥주 마시면서 걸어가기](https://www.acmicpc.net/problem/9205) <br><br> [[empty]]() <br> [[empty]]() <br> [[empty]]() <br> [[empty]]() | [private] <br> [private] <br><br> [private] <br> [private] <br> [private] <br> [private] | [boj2156](DP/2156.cpp) <br> [boj9205](DP/9205.cpp) <br><br> [empty]() <br> [empty]() <br> [empty]() <br> [empty]() | [week1](분석/week1.ipynb) |
+| week2 | [[empty]]() <br> [[empty]]() <br><br> [[empty]]() <br> [[empty]]() <br> [[empty]]() <br> [[empty]]() | [private] <br> [private] <br><br> [private] <br> [private] <br> [private] <br> [private] | [empty]() <br> [empty]() <br><br> [empty]() <br> [empty]() <br> [empty]() <br> [empty]() | [empty]() |
+| week3 | [[empty]]() <br> [[empty]]() <br><br> [[empty]]() <br> [[empty]]() <br> [[empty]]() <br> [[empty]]() | [private] <br> [private] <br><br> [private] <br> [private] <br> [private] <br> [private] | [empty]() <br> [empty]() <br><br> [empty]() <br> [empty]() <br> [empty]() <br> [empty]() | [empty]() |
+
+---
+### PROGRAMMERS PROBLEM SOLUTIONS
+[이것이 취업을 위한 코딩테스트 이다]  
+
+| 주차  | 문제    | 풀이     |
+|:-----:|:---|:---:|
+| 1주차  | [무지의 먹방 라이브](https://school.programmers.co.kr/learn/courses/42891/lessons/42891) <br> [문자열 압축](https://school.programmers.co.kr/learn/courses/30/lessons/60057) <br> [자물쇠와 열쇠](https://school.programmers.co.kr/learn/courses/30/lessons/60059) | [풀이](Programmers_Problems/42891.cpp) <br> [풀이](Programmers_Problems/60057.cpp) <br> [풀이](Programmers_Problems/60059.cpp)
+| 2주차  | [기둥과 보 설치](https://school.programmers.co.kr/learn/courses/30/lessons/60061) <br> [외벽 점검](https://school.programmers.co.kr/learn/courses/30/lessons/60062) <br> [괄호 변환](https://school.programmers.co.kr/learn/courses/30/lessons/60058) | [풀이](Programmers_Problems/60061.cpp) <br> [풀이](Programmers_Problems/60062.cpp) <br> [풀이](Programmers_Problems/60058.cpp)
+
+---
+### BACKJOON PROBLEM SOLUTIONS
+| 주차 | 문제 | 풀이 | 분석 |
 |:---:|:------|:-----:|:-----:|
 | 1주차  | [boj11724](https://www.acmicpc.net/problem/11724) <br> [boj2023](https://www.acmicpc.net/problem/2023) <br> [boj13023](https://www.acmicpc.net/problem/13023) <br> [boj1206](https://www.acmicpc.net/problem/1260) <br> [boj2178](https://www.acmicpc.net/problem/2178)  | [풀이](DFS_BFS/11724.cpp) <br> [풀이](DFS_BFS/2023.cpp) <br> [풀이](DFS_BFS/13023.cpp) <br> [풀이](DFS_BFS/1206.cpp) <br> [풀이](DFS_BFS/2178.cpp)  | [DFS_BFS](분석/DFS_BFS.ipynb)
 | 2주차  | [boj1167](https://www.acmicpc.net/problem/1167) <br> [boj2343](https://www.acmicpc.net/problem/2343) <br> [boj12100](https://www.acmicpc.net/problem/12100) <br> [boj11047](https://www.acmicpc.net/problem/11047) <br> [boj1715](https://www.acmicpc.net/problem/1715)  <br> [boj1744](https://www.acmicpc.net/problem/1744) <br> [boj1931](https://www.acmicpc.net/problem/1931) <br> [boj1541](https://www.acmicpc.net/problem/1541)  | [풀이](DFS_BFS/1167.cpp) <br> [풀이](BinarySeach/2343.cpp) <br> [풀이](DFS_BFS/12100.cpp) <br> [풀이](Greedy/11047.cpp) <br> [풀이](Greedy/1715.cpp) <br> [풀이](Greedy/1744.cpp) <br> [풀이](Greedy/1931.cpp) <br> [풀이](Greedy/1541.cpp)  |  [Greedy](분석/Greedy.ipynb)
