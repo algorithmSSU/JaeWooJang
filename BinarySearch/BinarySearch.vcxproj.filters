@@ -13,6 +13,9 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="소스 파일\Others">
+      <UniqueIdentifier>{c67d761a-133b-4c10-9c5b-f73552e441f5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="2343.cpp">
@@ -23,6 +26,9 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2805.cpp">
+      <Filter>소스 파일\Others</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

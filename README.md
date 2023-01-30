@@ -3,10 +3,10 @@
 from : '23.01.20.
 
 | WEEK | SELECTED PROBLEMS | CATEGORIS | SOLUTIONS | ANALYSIS |
-|:----:|:------------------|:---------:|:---------:|:-----------------------:|
-| week1 | [[boj2156]포도주 시식](https://www.acmicpc.net/problem/2156) <br> [[boj9205]맥주 마시면서 걸어가기](https://www.acmicpc.net/problem/9205) <br><br> [[empty]]() <br> [[empty]]() <br> [[empty]]() <br> [[empty]]() | [private] <br> [private] <br><br> [private] <br> [private] <br> [private] <br> [private] | [boj2156](DP/2156.cpp) <br> [boj9205](DP/9205.cpp) <br><br> [empty]() <br> [empty]() <br> [empty]() <br> [empty]() | [week1](분석/week1.ipynb) |
-| week2 | [[empty]]() <br> [[empty]]() <br><br> [[empty]]() <br> [[empty]]() <br> [[empty]]() <br> [[empty]]() | [private] <br> [private] <br><br> [private] <br> [private] <br> [private] <br> [private] | [empty]() <br> [empty]() <br><br> [empty]() <br> [empty]() <br> [empty]() <br> [empty]() | [empty]() |
-| week3 | [[empty]]() <br> [[empty]]() <br><br> [[empty]]() <br> [[empty]]() <br> [[empty]]() <br> [[empty]]() | [private] <br> [private] <br><br> [private] <br> [private] <br> [private] <br> [private] | [empty]() <br> [empty]() <br><br> [empty]() <br> [empty]() <br> [empty]() <br> [empty]() | [empty]() |
+|:----:|:------------------|:----------|:----------|:-----------------------:|
+| week1 | [[boj2156]포도주 시식](https://www.acmicpc.net/problem/2156) <br> [[boj9205]맥주 마시면서 걸어가기](https://www.acmicpc.net/problem/9205) <br><br> [[boj2470]두 용액](https://www.acmicpc.net/problem/2470) <br> [[boj14502]연구소](https://www.acmicpc.net/problem/14502) <br> [[leet403]Frog Jump](https://leetcode.com/problems/frog-jump/) | [ DP ] <br> [Graph & DFS/BFS] <br><br> [Two Pointer] <br> [ DFS/BFS ] <br> [ DP ] | [boj2156](DP/2156.cpp) <br> [boj9205](DP/9205.cpp) <br><br> [boj2470](TwoPoint/2470.cpp) <br> [boj14502](DFS_BFS/14502.cpp) <br> [empty]() | [week1](분석/week1.ipynb) |
+| week2 | [[boj7576]토마토](https://www.acmicpc.net/problem/7576) <br> [[boj2805]나무 자르기](https://www.acmicpc.net/problem/2805) <br><br> [[empty]]() <br> [[empty]]() <br> [[empty]]() <br> [[empty]]() | [private] <br> [private] <br><br> [private] <br> [private] <br> [private] <br> [private] | [empty]() <br> [empty]() <br><br> [empty]() <br> [empty]() <br> [empty]() <br> [empty]() | [week1](분석/week2.ipynb) |
+| week# | [[empty]]() <br> [[empty]]() <br><br> [[empty]]() <br> [[empty]]() <br> [[empty]]() <br> [[empty]]() | [private] <br> [private] <br><br> [private] <br> [private] <br> [private] <br> [private] | [empty]() <br> [empty]() <br><br> [empty]() <br> [empty]() <br> [empty]() <br> [empty]() | [empty]() |
 
 ---
 ### PROGRAMMERS PROBLEM SOLUTIONS

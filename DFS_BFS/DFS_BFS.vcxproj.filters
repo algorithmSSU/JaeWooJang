@@ -45,5 +45,11 @@
     <ClCompile Include="..\DP\9205.cpp">
       <Filter>소스 파일\Others</Filter>
     </ClCompile>
+    <ClCompile Include="7576.cpp">
+      <Filter>소스 파일\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TwoPoint\14502.cpp">
+      <Filter>소스 파일\Others</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
