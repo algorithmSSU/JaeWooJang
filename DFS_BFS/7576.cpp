@@ -1,3 +1,4 @@
+		tomato_list[cur].pop();
 #include <iostream>
 #include <vector>
 #include <queue>
@@ -35,7 +36,7 @@ int problem7576() {
 
 	int cycle = bfs(mat, 0, 0);
 
-	// ¸ðµç Åä¸¶Åä°¡ ¼÷¼ºµÇ¾ú´ÂÁö È®ÀÎ 
+	// ï¿½ï¿½ï¿½ ï¿½ä¸¶ï¿½ä°¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ 
 	if (checkAll(mat))
 		cout << cycle;
 	else
@@ -45,11 +46,11 @@ int problem7576() {
 }
 
 int bfs(Matrix& mat, int cur, int cycle) {
-	// »õ·Î ÀÍÀº Åä¸¶Åä°¡ ¾ø´Â °æ¿ì => Á¾·á
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ä¸¶ï¿½ä°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ => ï¿½ï¿½ï¿½ï¿½
 	if (tomato_list[cur].empty())
 		return cycle - 1;
 
-	// Åä¸¶Åä »õ·Î ÀÍÀ» Åä¸¶Åä Å¥ ¼±ÅÃ
+	// ï¿½ä¸¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ä¸¶ï¿½ï¿½ Å¥ ï¿½ï¿½ï¿½ï¿½
 	int next = (cur == 1) ? 0 : 1;
 
 	// BFS
@@ -57,22 +58,22 @@ int bfs(Matrix& mat, int cur, int cycle) {
 		Point tomato = tomato_list[cur].front();
 		tomato_list[cur].pop();
 
-		// i, j´Â ÁÂÇ¥
+		// i, jï¿½ï¿½ ï¿½ï¿½Ç¥
 		int i = tomato.first;
 		int j = tomato.second;
 
-		// À§ ¾Æ·¡ ¾ç ¿·À» ±âÁØÀ¸·Î
+		// ï¿½ï¿½ ï¿½Æ·ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		for (int d = 0; d < 4; ++d) {
-			// ¼÷¼º °¡´É ÇÑ °æ¿ì
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 			if (!mat[i + dir[d][0]][j + dir[d][1]]) {
-				// ¼÷¼º ¹× »õ·Î ÀÍÀ» Åä¸¶Åä ¸®½ºÆ®¿¡ Ãß°¡
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ä¸¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ß°ï¿½
 				mat[i + dir[d][0]][j + dir[d][1]] = TOMATO;
 				tomato_list[next].emplace(i + dir[d][0], j + dir[d][1]);
 			}
 		}
 	}
 
-	// »õ·Î ÀÍÀ» Åä¸¶Åä ¸®½ºÆ®
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ä¸¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	return bfs(mat, next, cycle + 1);
 }
 

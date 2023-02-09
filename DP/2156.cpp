@@ -36,9 +36,9 @@ int maxDrink(vector<int>& maxOut, vector<int>& input, int n) {
 		vector<int> cases(3);
 		int sum = 0;
 
-		cases[0] = maxDrink(maxOut, input, n - 1);
-		cases[1] = maxDrink(maxOut, input, n - 2) + input[n];
-		cases[2] = maxDrink(maxOut, input, n - 3) + input[n] + input[n - 1];
+		cases[0] = maxDrink(maxOut, input, n - 1) + 0;
+		cases[1] = maxDrink(maxOut, input, n - 2) + 0 + input[n];
+		cases[2] = maxDrink(maxOut, input, n - 3) + 0 + input[n] + input[n - 1];
 
 		maxOut[n] = max(cases);
 	}
